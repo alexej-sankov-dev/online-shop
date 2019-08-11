@@ -173,8 +173,8 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="392" />
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="391" />
     <option name="width" value="1550" />
     <option name="height" value="830" />
   </component>
@@ -359,7 +359,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="C:/Projects/Project" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />

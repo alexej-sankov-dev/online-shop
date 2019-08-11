@@ -1,1 +1,0 @@
-insert into product (description, price, stock, title) values ('this is a product', 20.0, 40, 'Product 1')
