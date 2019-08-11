@@ -15,10 +15,12 @@ class PayPalButton extends React.Component {
       console.log(this.props.total);
       const createOrder = (data, actions) => {
           return actions.order.create({
-          purchase_units: [{
+          "purchase_units": [{
             "amount": {
-              curreny_code: "EUR",
-              value: this.props.total
+              "currency_code": "EUR",
+              "value" : this.props.total
+              
+              
             }
           }]
         });
@@ -38,7 +40,8 @@ class PayPalButton extends React.Component {
                 if(res.status != 200) {
                   history.push('/cancel')
                 }
-                console.log('transcation completed')  
+                console.log('transcation completed') 
+                console.log('order verified: '+res.data ) 
                 
                 const respone = await axios.get(`http://localhost:3001/check-transaction/${data.orderID}`);
                 console.log(respone.data);

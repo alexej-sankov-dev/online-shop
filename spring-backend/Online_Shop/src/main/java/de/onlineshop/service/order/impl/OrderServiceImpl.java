@@ -33,7 +33,7 @@ public class OrderServiceImpl implements OrderService {
     ProductRepository productRepository;
 
     @Override
-    public void verifyOrder(String orderIDJsonStr) {
+    public String verifyOrder(String orderIDJsonStr) {
         JSONObject orderIDJson = null;
         try {
             orderIDJson = new JSONObject(orderIDJsonStr);
@@ -52,6 +52,8 @@ public class OrderServiceImpl implements OrderService {
 
         OrderPaypal orderPaypal = orderToOrderPaypal(order);
         orderPaypalRepository.save(orderPaypal);
+
+        return orderID;
 
     }
 

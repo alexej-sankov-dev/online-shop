@@ -16,9 +16,10 @@ public class OrderController {
     private OrderService orderService;
 
     @PostMapping("/paypal-transaction-complete")
-    public ResponseEntity<Void> getOrderID(@RequestBody String body) {
-        orderService.verifyOrder(body);
-        return new ResponseEntity<>(HttpStatus.OK);
+    public ResponseEntity<String> getOrderID(@RequestBody String body) {
+        String orderID = orderService.verifyOrder(body);
+        System.out.println("Status of tr: "+orderID);
+        return ResponseEntity.status(HttpStatus.OK).body(orderService.checkTransaction(orderID));
     }
 
     @GetMapping("/check-transaction/{id}")

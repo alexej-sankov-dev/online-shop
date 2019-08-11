@@ -4,7 +4,7 @@ import org.json.JSONObject;
 
 public interface OrderService {
 
-    void verifyOrder(String orderIDJsonStr);
+    String verifyOrder(String orderIDJsonStr);
 
     String checkTransaction(String id);
 

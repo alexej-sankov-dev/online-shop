@@ -20,7 +20,7 @@ class PayModal extends React.Component {
     renderContent() {
         return (
             <React.Fragment>
-                <h2>{this.props.total} $</h2>
+                <h2>{this.props.total} €</h2>
                 <PayPalButton />
             </React.Fragment>
         );
