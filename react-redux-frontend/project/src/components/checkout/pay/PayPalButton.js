@@ -42,10 +42,7 @@ class PayPalButton extends React.Component {
                 }
                 console.log('transcation completed') 
                 console.log('order verified: '+res.data ) 
-                
-                const respone = await axios.get(`http://localhost:3001/check-transaction/${data.orderID}`);
-                console.log(respone.data);
-                if(respone.data === 'COMPLETED') {
+                if(res.data === 'COMPLETED') {
                   this.props.verifyOrder();
                     await axios({
                       method: 'post',
@@ -58,12 +55,12 @@ class PayPalButton extends React.Component {
                         address: this.props.payment.address,
                         orderedCart: this.props.payment.orderedCart
                     })});
-                    console.log('payment veryfied');
+                    console.log('order veryfied');
                     this.props.clearCart();
 
                   history.push('/success');
                 } else {
-                  history.push('/cancel');
+                  history.push('/cancel')
                 }
 
               });   

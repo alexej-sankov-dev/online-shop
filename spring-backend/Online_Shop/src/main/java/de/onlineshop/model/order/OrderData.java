@@ -19,7 +19,7 @@ public class OrderData {
     @Column(name = "ORDER_ID")
     private Long orderID;
 
-    @Column(name = "PAYPAL_ORDER_ID", nullable = false, length = 50)
+    @Column(name = "ORDER_PAYPAL_ID", nullable = false, length = 50)
     private Long paypalOrderId;
 
     @Column(name = "ORDERED_CART", nullable = false, length = 500)

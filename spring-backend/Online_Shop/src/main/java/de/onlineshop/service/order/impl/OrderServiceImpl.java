@@ -41,14 +41,12 @@ public class OrderServiceImpl implements OrderService {
             e.printStackTrace();
         }
         String orderID = orderIDJson.getString("orderID");
-        System.out.println(orderID);
         JSONObject order = null;
         try {
             order = new GetOrder().getOrder(orderID);
         } catch (IOException e) {
             e.printStackTrace();
         }
-        System.out.println(order.toString(4));
 
         OrderPaypal orderPaypal = orderToOrderPaypal(order);
         orderPaypalRepository.save(orderPaypal);
@@ -74,7 +72,6 @@ public class OrderServiceImpl implements OrderService {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        System.out.println(orderDataJson.toString(4));
         OrderData orderData = new OrderData();
 
         List<OrderPaypal> orderPaypalList = orderPaypalRepository.findById(orderDataJson.getString("orderID"));

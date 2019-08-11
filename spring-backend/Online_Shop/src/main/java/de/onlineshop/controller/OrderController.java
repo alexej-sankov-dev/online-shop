@@ -18,7 +18,6 @@ public class OrderController {
     @PostMapping("/paypal-transaction-complete")
     public ResponseEntity<String> getOrderID(@RequestBody String body) {
         String orderID = orderService.verifyOrder(body);
-        System.out.println("Status of tr: "+orderID);
         return ResponseEntity.status(HttpStatus.OK).body(orderService.checkTransaction(orderID));
     }
 
@@ -29,7 +28,7 @@ public class OrderController {
 
     @PostMapping("/capture-order-data")
     public ResponseEntity<Void> captureOrderData(@RequestBody String body) {
-        orderService.captureOrderData(body);
+        orderService.captureO   rderData(body);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
