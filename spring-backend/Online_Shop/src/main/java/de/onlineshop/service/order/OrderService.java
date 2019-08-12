@@ -1,6 +1,5 @@
 package de.onlineshop.service.order;
 
-import org.json.JSONObject;
 
 public interface OrderService {
 

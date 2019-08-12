@@ -16,20 +16,16 @@ public class OrderController {
     private OrderService orderService;
 
     @PostMapping("/paypal-transaction-complete")
-    public ResponseEntity<String> getOrderID(@RequestBody String body) {
+    public ResponseEntity<String> completedTransaction(@RequestBody String body) {
+        System.out.println("body: "+body);
         String orderID = orderService.verifyOrder(body);
+        orderService.captureOrderData(body);
         return ResponseEntity.status(HttpStatus.OK).body(orderService.checkTransaction(orderID));
     }
 
     @GetMapping("/check-transaction/{id}")
     public ResponseEntity<String> checkTransactions(@PathVariable(value = "id") String id) {
         return ResponseEntity.status(HttpStatus.OK).body(orderService.checkTransaction(id));
-    }
-
-    @PostMapping("/capture-order-data")
-    public ResponseEntity<Void> captureOrderData(@RequestBody String body) {
-        orderService.captureO   rderData(body);
-        return new ResponseEntity<>(HttpStatus.OK);
     }
 
 }

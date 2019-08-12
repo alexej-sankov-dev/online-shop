@@ -28,6 +28,7 @@ class PayPalButton extends React.Component {
 
         const onApprove =  (data, actions) => {
             return actions.order.capture().then( async (details) => {
+              console.log('payment: '+this.props.paymemt)
                 const res = await axios({
                   method: 'post',
                   url: 'http://localhost:3001/paypal-transaction-complete',
@@ -35,8 +36,10 @@ class PayPalButton extends React.Component {
                     'content-type': 'application/json'
                   },
                   data: JSON.stringify({
-                    orderID: data.orderID
-                  })});
+                    orderID: data.orderID,
+                    address: this.props.payment.address,
+                    orderedCart: this.props.payment.orderedCart
+                })});
                 if(res.status != 200) {
                   history.push('/cancel')
                 }
@@ -44,19 +47,8 @@ class PayPalButton extends React.Component {
                 console.log('order verified: '+res.data ) 
                 if(res.data === 'COMPLETED') {
                   this.props.verifyOrder();
-                    await axios({
-                      method: 'post',
-                      url: 'http://localhost:3001/capture-order-data',
-                      headers: {
-                      'content-type': 'application/json'
-                      },
-                      data: JSON.stringify({
-                        orderID: data.orderID,
-                        address: this.props.payment.address,
-                        orderedCart: this.props.payment.orderedCart
-                    })});
-                    console.log('order veryfied');
-                    this.props.clearCart();
+                  console.log('order veryfied');
+                  this.props.clearCart();
 
                   history.push('/success');
                 } else {
