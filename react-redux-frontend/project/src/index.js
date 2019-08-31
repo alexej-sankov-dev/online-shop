@@ -6,12 +6,19 @@ import reduxThunk from 'redux-thunk';
 
 import App from './components/App';
 import reducers from './reducers';
+import { loadState, saveState } from './actions/localStorage'
 
+const persistedState = loadState();
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(
     reducers,
+    persistedState,
     composeEnhancers(applyMiddleware(reduxThunk))
 );
+
+store.subscribe(() => {
+    saveState(store.getState());
+})
 
 ReactDOM.render(
     <Provider store={store}>

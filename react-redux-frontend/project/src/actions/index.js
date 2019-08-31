@@ -3,7 +3,7 @@ import history from '../history';
 import {SIGN_OUT, SIGN_IN, CREATE_PRODUCT, DELETE_PRODUCT,
         EDIT_PRODUCT, FETCH_PRODUCT, FETCH_PRODUCTS, ADD_TO_CART,
         REMOVE_FROM_CART, ADD_TO_CART_WITH_QUANTITY,
-        SET_ADDRESS, VERIFY_ORDER, SET_ORDERED_CART, CLEAR_CART, CHANGE_PRODUCT_QUANTITY} from "./types";
+        SET_ADDRESS, VERIFY_ORDER, SET_ORDERED_CART, CLEAR_CART, CHANGE_PRODUCT_QUANTITY, SET_LOADING} from "./types";
 
 export const signIn = (userId) => (dispatch) => {
     dispatch({ type: SIGN_IN, payload: userId});
@@ -101,4 +101,11 @@ export const changeProductQuantity = (productId, quantity) => ({
         productId,
         quantity
     }
-})
+});
+
+export const setLoading = (loading) => ({
+    type: SET_LOADING,
+    payload : {
+        loading
+    }
+});

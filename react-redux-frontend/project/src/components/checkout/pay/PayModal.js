@@ -5,7 +5,7 @@ import { getTotal } from '../../../reducers';
 import Modal from '../../Modal';
 import history from '../../../history';
 import PayPalButton from './PayPalButton';
-
+import LoadingSpinner from './../../LoadingSpinner';
 
 class PayModal extends React.Component {
     
@@ -27,6 +27,10 @@ class PayModal extends React.Component {
     }
 
     render () {
+        console.log(this.props.loading)
+        if(this.props.loading) {
+            //return <LoadingSpinner />
+        }
         return (
             <Modal
                 title="Pay"
@@ -39,7 +43,10 @@ class PayModal extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-    return {total: getTotal(state)};
+    return {
+        total: getTotal(state),
+        loading: state.loading
+    };
 };
 
 

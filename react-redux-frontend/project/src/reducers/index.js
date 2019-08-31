@@ -6,6 +6,7 @@ import cart from './cartReducer';
 import payment from './paymentReducer'
 import {getCart} from './cartReducer';
 import {getProduct} from './productReducer';
+import spinner from './spinnerReducer';
 
 
 export default combineReducers({
@@ -13,7 +14,8 @@ export default combineReducers({
     form: formReducer,
     products: productReducer,
     cart : cart,
-    payment
+    payment,
+    loading: spinner
 });
 
 const getProductsInCart = state => getCart(state.cart);
@@ -31,12 +33,3 @@ export const getTotal = state => {
     return total;
 }
 
-/*
-getAddedIds(state)
-    .reduce((total, id) =>
-      total + getProduct(state, id).price * getQuantity(state, id),
-      0
-    )
-    .toFixed(2)
-
-    */

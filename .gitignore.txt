@@ -1,2 +1,0 @@
-.\react-redux-frontend\project\node_modules
-.\react-redux-frontend\project\.idea
