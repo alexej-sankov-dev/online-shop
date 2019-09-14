@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
 import {createStore, applyMiddleware, compose} from "redux";
 import reduxThunk from 'redux-thunk';
+import throttle from 'lodash/throttle'
 
 import App from './components/App';
 import reducers from './reducers';
@@ -16,9 +17,13 @@ const store = createStore(
     composeEnhancers(applyMiddleware(reduxThunk))
 );
 
-store.subscribe(() => {
-    saveState(store.getState());
-})
+store.subscribe(throttle(() => {
+    saveState({
+        cart : store.getState().cart,
+        auth: store.getState().auth,
+        payment: store.getState().payment
+    });
+}, 1000));
 
 ReactDOM.render(
     <Provider store={store}>
