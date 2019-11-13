@@ -1,4 +1,3 @@
-import _ from 'lodash';
 import {SET_ADDRESS, VERIFY_ORDER, SET_ORDERED_CART} from "../actions/types";
 
 const INITIAL_STATE = {

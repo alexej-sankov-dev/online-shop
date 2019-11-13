@@ -11,11 +11,21 @@ import { loadState, saveState } from './actions/localStorage'
 
 const persistedState = loadState();
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-const store = createStore(
-    reducers,
-    persistedState,
-    composeEnhancers(applyMiddleware(reduxThunk))
-);
+
+var store = null;
+
+if(persistedState) {   
+    store = createStore(
+        reducers,
+        persistedState,
+        composeEnhancers(applyMiddleware(reduxThunk))
+    ); 
+} else {
+    store = createStore(
+        reducers,
+        composeEnhancers(applyMiddleware(reduxThunk))
+    );
+}
 
 store.subscribe(throttle(() => {
     saveState({

@@ -11,12 +11,12 @@ import ProductListAdmin from './products/ProductListAdmin';
 
 import Checkout from './checkout/Checkout';
 import ProductAddedModal from './products/ProductAddedModal';
-import Login from './Login';
-import PaymentSuccess from './checkout/pay/PaymentSuccess';
-import PaymentCancel from './checkout/pay/PaymentCancel';
-import PayModal from './checkout/pay/PayModal';
+import Login from './general/Login';
+import PaymentSuccess from './checkout/payment/PaymentSuccess';
+import PaymentCancel from './checkout/payment/PaymentCancel';
+import PayModal from './checkout/payment/PayModal';
 import Cart from './cart/Cart';
-import Header from './Header';
+import Header from './general/Header';
 import history from '../history';
 
 

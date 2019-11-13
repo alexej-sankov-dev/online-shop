@@ -1,6 +1,4 @@
-import _ from 'lodash';
 import { SET_LOADING } from "../actions/types";
-
 
 export default (state = { loading: false}, action) => {
     switch (action.type) {

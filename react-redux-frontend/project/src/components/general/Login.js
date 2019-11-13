@@ -1,9 +1,8 @@
 import React from 'react';
-import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 import GoogleAuth from './GoogleAuth';
 import Modal from './Modal';
-import history from '../history';
+import history from '../../history';
 
 class Login extends React.Component {
     

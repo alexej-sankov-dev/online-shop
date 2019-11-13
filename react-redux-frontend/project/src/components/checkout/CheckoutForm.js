@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import { setAddress, setOrderedCart } from '../../actions';
 import history from '../../history';
 import axios from 'axios';
-import { async } from 'q';
 
 class CheckoutForm extends React.Component{
 

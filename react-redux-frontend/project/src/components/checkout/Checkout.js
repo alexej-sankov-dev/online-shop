@@ -1,7 +1,6 @@
 import React from 'react';
 import CheckoutForm from './CheckoutForm';
-import PayPalButton from './pay/PayPalButton';
-import {Link} from 'react-router-dom';
+
 
 
 class Checkout extends React.Component {

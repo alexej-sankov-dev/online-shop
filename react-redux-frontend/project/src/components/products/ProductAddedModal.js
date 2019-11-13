@@ -3,9 +3,8 @@ import {connect} from 'react-redux';
 import {fetchProduct} from "../../actions";
 import {Link} from 'react-router-dom';
 
-import Modal from '../Modal';
+import Modal from '../general/Modal';
 import history from '../../history';
-import ProductList from './ProductList';
 import CartModal from '../cart/CartModal';
 
 class ProductAddedModal extends React.Component {

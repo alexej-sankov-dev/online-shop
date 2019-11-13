@@ -18,8 +18,6 @@ class PayPalButton extends React.Component {
             "amount": {
               "currency_code": "EUR",
               "value" : this.props.total
-              
-              
             }
           }]
         });
@@ -43,7 +41,7 @@ class PayPalButton extends React.Component {
               if(res.status) {
                 setLoading(false);
               }
-              if(res.status != 200) {
+              if(res.status !== 200) {
                 history.push('/cancel')
               }
               console.log('transcation completed') 

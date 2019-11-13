@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import { Link } from 'react-router-dom';
 import { addToCart, addToCartWithQuantity} from '../../actions';
-import history from '../../history';
+
 
 class AddToCartButton extends React.Component{
 //TODO: render only if user is logged in

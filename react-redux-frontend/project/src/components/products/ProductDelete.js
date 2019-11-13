@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {fetchProduct, deleteProduct} from "../../actions";
 import {Link} from 'react-router-dom';
 
-import Modal from '../Modal';
+import Modal from '../general/Modal';
 import history from '../../history';
 
 class ProductDelete extends React.Component {

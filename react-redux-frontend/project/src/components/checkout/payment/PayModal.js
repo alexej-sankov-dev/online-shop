@@ -2,10 +2,9 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 import { getTotal } from '../../../reducers';
-import Modal from '../../Modal';
+import Modal from '../../general/Modal';
 import history from '../../../history';
 import PayPalButton from './PayPalButton';
-import LoadingSpinner from './../../LoadingSpinner';
 
 class PayModal extends React.Component {
     
